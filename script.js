@@ -2,17 +2,6 @@ const heatmapContainer = document.getElementById("heatmap");
 const statusEl = document.getElementById("status");
 const loadButton = document.getElementById("load-heatmap");
 const usernameInput = document.getElementById("username");
-const urlParams = new URLSearchParams(window.location.search);
-const embeddedMode = urlParams.get("embed") === "1";
-const usernameFromQuery = urlParams.get("user");
-
-if (embeddedMode) {
-  document.body.classList.add("embed");
-}
-
-if (usernameFromQuery) {
-  usernameInput.value = usernameFromQuery;
-}
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 const TOTAL_DAYS = 365;
@@ -208,8 +197,4 @@ usernameInput.addEventListener("keydown", (event) => {
   }
 });
 
-if (embeddedMode || usernameFromQuery) {
-  loadHeatmap();
-} else {
-  renderHeatmap(sampleCounts, usernameInput.value.trim(), "");
-}
+renderHeatmap(sampleCounts, usernameInput.value.trim(), "");
