@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lichess Puzzle Heatmap</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Lichess Puzzle Heatmap</h1>
+        <p>Track which days you solved at least one puzzle.</p>
+      </header>
+
+      <section class="controls">
+        <label for="username">Lichess username</label>
+        <div class="controls-row">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            value="tuttlepower"
+            autocomplete="off"
+          />
+          <button id="load-heatmap" type="button">Load activity</button>
+          <button id="copy-embed" type="button">Copy embed</button>
+        </div>
+        <p class="hint">
+          Enter a username, load the activity, then copy the embed snippet for
+          Obsidian.
+        </p>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <textarea id="embed-code" readonly rows="3"></textarea>
+      </section>
+
+      <section class="heatmap-card">
+        <div class="heatmap" id="heatmap"></div>
+        <div class="legend">
+          <span>Less</span>
+          <div class="swatch level-0"></div>
+          <div class="swatch level-1"></div>
+          <div class="swatch level-2"></div>
+          <div class="swatch level-3"></div>
+          <div class="swatch level-4"></div>
+          <span>More</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
